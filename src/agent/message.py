@@ -9,6 +9,7 @@ class Memory:
         self.MAX_MEMORY_SIZE = max_size  # Maximum number of messages to store
         self.Window_size = window_size  # Number of messages to show to agent in a window,latest messages will be shown to agent
         self.Current_memory_size = 0  # Current number of messages stored in memory
+        self.current_context=self.get_current_context(self.Window_size)  # Initialize current context with the latest messages
 
 
     def add_message(self, message):
@@ -30,7 +31,7 @@ class Memory:
             return self.messages[-1]
         return None
 
-    def current_context(self, context_size):
+    def get_current_context(self, context_size):
         if context_size <= 0:
             return []
         return self.messages[-context_size:]
