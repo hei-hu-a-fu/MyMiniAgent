@@ -1,7 +1,7 @@
 import memory
 from src.agent import model
 
-class agent:
+class Agent:
     def __init__(self, name, description, env, tools , model):
         self.name = name
         self.description = description

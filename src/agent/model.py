@@ -2,7 +2,7 @@ from openai import OpenAI
 import os
 
 class LLMModel:
-    def __init__(self, model_name: str, baseurl: str):
+    def __init__(self, model_name: str, baseurl: str, KEY_NAME: str):
         self.model_name = model_name
         # Initialize the model here (e.g., load weights, set up tokenizer, etc.)
         self.url = baseurl
@@ -10,7 +10,7 @@ class LLMModel:
     def generate_response(self, prompt: str, stream: bool = False) -> str:
         try:
             # Create an OpenAI client with the specified base URL
-            client = OpenAI(base_url=self.url)
+            client = OpenAI(apikey=os.getenv(KEY_NAME), base_url=self.url)
             # Generate a response using the model
             response = client.chat.completions.create(
                 model=self.model_name,

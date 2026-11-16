@@ -1,6 +1,6 @@
 import abc
 
-class tool(abc.ABC):
+class Tool(abc.ABC):
     @abc.abstractmethod
     def __init__(self, name, description):
         self.name = name
