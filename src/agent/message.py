@@ -1,7 +1,8 @@
 class Message:
-    def __init__(self, content, role):
+    def __init__(self, content, role, model):
         self.content = content
         self.role = role
+        self.model = model
 
 class Memory:
     def __init__(self, max_size, window_size):

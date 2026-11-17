@@ -5,6 +5,7 @@ from datetime import datetime
 class Diagnosis:
     def __init__(self, model, ChatBotAgent):
         self.id = self.initialize_id()
+        self.ChatBotAgent = ChatBotAgent
         self.model = model
         self.messages: list[Message] = []
 
@@ -17,3 +18,6 @@ class Diagnosis:
 
     def exchange_model(self, model: str):
         self.model = model
+
+    def add_message(self, message: Message):
+        self.messages.append(message)
