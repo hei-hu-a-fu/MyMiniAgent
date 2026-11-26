@@ -1,8 +1,8 @@
 class Message:
-    def __init__(self, content, role, model):
+    def __init__(self, content, role, model_name=None):
         self.content = content
         self.role = role
-        self.model = model
+        self.model_name = model_name
 
 class Memory:
     def __init__(self, max_size, window_size):
@@ -19,6 +19,7 @@ class Memory:
             self.messages.pop(0)
             self.Current_memory_size -= 1
         self.messages.append(message)
+        self.current_context = self.get_current_context(self.Window_size)
         self.Current_memory_size += 1
 
     def get_all_messages(self):
@@ -26,6 +27,7 @@ class Memory:
 
     def clear_memory(self):
         self.messages = []
+        self.Current_memory_size = 0
 
     def get_last_message(self):
         if self.messages:

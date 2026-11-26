@@ -21,3 +21,14 @@ class LLMModel:
         except Exception as e:
             print(f"Error generating response: {e}")
             return f"Error generating response: {e}"
+
+
+class ModelManager:
+    def __init__(self):
+        self.models = {}
+
+    def add_model(self, model_name: str, model: LLMModel):
+        self.models[model_name] = model
+
+    def get_model(self, model_name: str) -> LLMModel:
+        return self.models.get(model_name)
